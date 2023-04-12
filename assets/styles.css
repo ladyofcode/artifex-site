@@ -124,7 +124,7 @@ h2::after {
 	}
 }
 
-img {
+#project img {
 	border-radius: 8px;
 	align-self: center;
 }
@@ -189,6 +189,7 @@ footer {
 }
 
 #project img {
+	width: 100%;
 	max-width: 400px;
 	margin: 0 auto;
 	margin-top: 1.6rem;
@@ -377,6 +378,12 @@ nav input[type="checkbox"]:checked~.logo {
 	transform: translateZ(-8px) scale(5.5);
 }
 
+@media (min-width: 620px) {
+	.container{
+		padding: 1.6rem 4rem;
+	}
+}
+
 @media (min-width: 800px) {
 
 	#about-section,
@@ -450,5 +457,11 @@ nav input[type="checkbox"]:checked~.logo {
 	.gallery a img {
 		max-width: 200px;
 		max-height: 100px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		padding: 0;
 	}
 }

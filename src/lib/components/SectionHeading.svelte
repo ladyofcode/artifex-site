@@ -94,8 +94,13 @@
 		border-radius: 50%;
 		margin-top: 24px;
 		background: var(--clr-afx-blue);
-		/* visibility: hidden; */
 		display: inline-block;
 		transition: width 0.1s ease;
+	}
+
+	@media (min-width: 800px) {
+		h2 {
+			padding-top: 4rem;
+		}
 	}
 </style>

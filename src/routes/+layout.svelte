@@ -4,6 +4,7 @@
 	import '../app.css';
 
 	import Nav from '$lib/components/Nav.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	import { gsap } from 'gsap';
 
@@ -37,5 +38,6 @@
 <div id="smooth-wrapper">
 	<div id="smooth-content">
 		<slot />
+		<Footer />
 	</div>
 </div>

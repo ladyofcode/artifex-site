@@ -4,6 +4,7 @@
 	import GridGallery from '$lib/components/homepage/GridGallery.svelte';
 	import SingleImage from '$lib/components/homepage/SingleImage.svelte';
 	import Header from '$lib/components/homepage/Header.svelte';
+	import PieceByPieceGallery from '$lib/components/homepage/piece_by_piece_gallery/PieceByPieceGallery.svelte';
 
 	const image_pbp1 = { src: 'images/piece_by_piece/pbp1.png', width: 842, height: 595 };
 	const image_pbp2 = 'images/piece_by_piece/pbp2.png';
@@ -163,6 +164,7 @@
 	</div>
 
 	<GridGallery images={images_pbp_slider} galleryId="pbp_group1" columns=4 />
+	<PieceByPieceGallery />
 </section>
 <section>
 	<div id="project" class="container">

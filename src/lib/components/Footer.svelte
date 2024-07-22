@@ -20,9 +20,10 @@
 		position: absolute;
 		right: 0;
 		top: 100%;
-		/* left: 0; */
+		left: 0;
 		height: 4px;
-		margin-right: 40px;
+		margin-right: 20vw;
+		margin-left: 20vw;
 		margin-top: -80px;
 		background: var(--clr-afx-blue);
 		background: linear-gradient(
@@ -31,10 +32,9 @@
 			var(--clr-afx-purple) 50%,
 			var(--clr-afx-pink) 100%
 		);
-		width: 80vw;
+		/* width: 80vw; */
 		border-radius: 16px;
 		transition: width 0.3s ease;
     }
     
-
 </style>

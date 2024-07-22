@@ -54,11 +54,6 @@
 
 	const images_trips = [
 		{
-			src: 'images/core_aeons.jpg',
-			height: 1080,
-			width: 1600
-		},
-		{
 			src: 'images/barbie.jpg',
 			height: 768,
 			width: 1211
@@ -77,6 +72,11 @@
 			src: 'images/lightpainting.jpg',
 			height: 576,
 			width: 952
+		},
+		{
+			src: 'images/core_aeons.jpg',
+			height: 1080,
+			width: 1600
 		},
 		{
 			src: 'images/food_photography.jpg',

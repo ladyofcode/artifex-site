@@ -1,40 +1,150 @@
 <script>
-	const image_pbp1 = 'piece_by_piece/pbp1.png';
-	const image_pbp2 = 'piece_by_piece/pbp2.png';
-	const image_pbp3 = 'piece_by_piece/pbp3.png';
-	const image_pbp4 = 'piece_by_piece/pbp4.png';
-	const image_pbp5 = 'piece_by_piece/pbp5.png';
+	import AlternatingContent from '$lib/components/homepage/AlternatingContent.svelte';
+	import SectionHeading from '$lib/components/SectionHeading.svelte';
+	import GridGallery from '$lib/components/homepage/GridGallery.svelte';
+	import SingleImage from '$lib/components/homepage/SingleImage.svelte';
+
+	const image_pbp1 = 'images/piece_by_piece/pbp1.png';
+	const image_pbp2 = 'images/piece_by_piece/pbp2.png';
+	const image_pbp3 = 'images/piece_by_piece/pbp3.png';
+	const image_pbp4 = 'images/piece_by_piece/pbp4.png';
+	const image_pbp5 = 'images/piece_by_piece/pbp5.png';
+
+	const image_gamejam2023 = {
+		src: 'images/gamejam_2023.jpg',
+		height: 100,
+		width: 200
+	};
+
+	const image_pax = {
+		src: 'images/pax_2023.jpg',
+		height: 100,
+		width: 200
+	};
+
+	const image_photowalk = {
+		src: 'images/photowalk2023.jpg',
+		height: 100,
+		width: 200
+	};
+
+	const images_pbp_slider = [
+		{
+			src: image_pbp1,
+			height: 100,
+			width: 200
+		},
+		{
+			src: image_pbp1,
+			height: 100,
+			width: 200
+		},
+		{
+			src: image_pbp1,
+			height: 100,
+			width: 200
+		},
+		{
+			src: image_pbp2,
+			height: 100,
+			width: 200
+		},
+		{
+			src: image_pbp2,
+			height: 100,
+			width: 200
+		},
+		{
+			src: image_pbp2,
+			height: 100,
+			width: 200
+		}
+	];
+
+	const images_trips = [
+		{
+			src: 'images/core_aeons.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/barbie.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/pax_inside2023.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/games_exhibition.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/lightpainting.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/food_photography.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/lca.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/mel_aquarium.jpg',
+			height: 100,
+			width: 200
+		},
+		{
+			src: 'images/sophie_sachi.jpg',
+			height: 100,
+			width: 200
+		}
+	];
+
+	const aboutContent = [
+		`
+				<h3>Interests</h3>
+				<p>Code, design, 3D, video, photography, digital art</p>
+			`,
+		`
+				<h3>Learning</h3>
+				<p>Workshops, mentoring, trips, experiments</p>
+			`,
+		`
+				<h3>Projects</h3>
+				<p>Personal, team, and freelance project support</p>
+			`
+	];
 </script>
 
 <section>
 	<div id="about" class="container">
-		<h2 id="about-section">Community of creators</h2>
-		<div class="content">
-			<div>
-				<h3>Interests</h3>
-				<p>Code, design, 3D, video, photography, digital art</p>
-			</div>
-			<div>
-				<h3>Learning</h3>
-				<p>Workshops, mentoring, trips, experiments</p>
-			</div>
-			<div>
-				<h3>Projects</h3>
-				<p>Personal, team, and freelance project support</p>
-			</div>
-		</div>
+		<SectionHeading subheading="Community of creators" id="about" />
+		<AlternatingContent content={aboutContent} />
 	</div>
 </section>
 <section>
 	<div id="events" class="container">
-		<h2>Game jams</h2>
+		<SectionHeading subheading="Game jams" id="game-jams" />
 
 		<div class="two-column">
-			<img src={image_pbp1} alt="" />
+			<SingleImage image={image_gamejam2023} galleryId="gamejam" />
 			<h3>Artifex X CSSA annual game jam</h3>
-			<p>Some description here blah blah di blah</p>
-			<p>Some description here blah blah di blah</p>
-			<button>Join in</button>
+			<p>
+				Artifex teams up with the ANU Computer Science Students Association for a weekend of
+				learning, collaboration, and creativity at our game jam. Come create unique and innovative
+				games. No experience is necessary - just bring your passion for gaming and let's jam!
+			</p>
+
+			<a class="button" href="https://artifexanu.com/cssa-afx-game-jam">Join in</a>
 		</div>
 		<div class="two-column reverse">
 			<img src="" alt="" />
@@ -52,62 +162,42 @@
 				Parry is hiding from is looking to find her, and she must learn to confront this truth
 				before it traps her here forever.
 			</p>
-			<button>Play game</button>
+			<a class="button" href="https://artifexanu.itch.io/piece-by-piece">Play game</a>
 		</div>
 	</div>
 
-	<div>
-		<div>
-			<img src={image_pbp1} alt="" />
-			<img src={image_pbp1} alt="" />
-			<img src={image_pbp1} alt="" />
-		</div>
-
-		<div>
-			<img src={image_pbp1} alt="" />
-			<img src={image_pbp1} alt="" />
-			<img src={image_pbp1} alt="" />
-		</div>
-	</div>
+	<GridGallery images={images_pbp_slider} galleryId="pbp_group1" />
 </section>
 <section>
 	<div id="project" class="container">
-		<h2 id="project-section">Touching grass</h2>
+		<SectionHeading id="touching-grass" subheading="Touching grass" />
 		<div class="two-column">
-			<img src={image_pbp1} alt="" />
+			<SingleImage image={image_pax} galleryId="pax" />
 			<h3>PAX Aus (Annual)</h3>
 			<p>
 				Artifex organises an annual trip to PAX. All are welcome - plenty of non-members join us
 			</p>
-			<button>Join in</button>
+			<a class="button" href="https://artifexanu.com/join">Join in</a>
 		</div>
 
 		<div class="two-column">
-			<img src={image_pbp1} alt="" />
-			<h3>Photowalks</h3>
-			<p>Literal grass and plants. Yay. Floriade etc</p>
+			<SingleImage image={image_photowalk} galleryId="photowalk" />
+			<h3>Photowalks and trips</h3>
+			<p>
+				Literal grass and plants. Yay. <a href="https://floriadeaustralia.com/">Floriade</a> etc.
+			</p>
 		</div>
 
 		<div>
 			<h3>Other trips and events</h3>
 
-			<div>
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-				<img src={image_pbp1} alt="" />
-			</div>
+			<GridGallery images={images_trips} galleryId="pbp_group2" />
 		</div>
 	</div>
 </section>
 <section>
 	<div id="contact" class="container">
-		<h2 id="contact-section">Drop us a line</h2>
+		<SectionHeading id="contact" subheading="Drop us a line" />
 		<div class="content">
 			<div>
 				<p>
@@ -119,7 +209,7 @@
 				<h3>See upcoming events on</h3>
 				<ul>
 					<li>
-						<a href="#"
+						<a href="https://www.instagram.com/artifexanu/"
 							><svg
 								width="32"
 								height="32"
@@ -134,7 +224,7 @@
 						>
 					</li>
 					<li>
-						<a href="#"
+						<a href="https://www.facebook.com/artifexanu/"
 							><svg
 								width="32"
 								height="32"
@@ -154,7 +244,7 @@
 						>
 					</li>
 					<li>
-						<a href="#"
+						<a href="https://artifexanu.com/join"
 							><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 								<path
 									fill="#f5f5f5"
@@ -165,7 +255,7 @@
 					</li>
 				</ul>
 
-				<h3>Yearly schedule</h3>
+				<!-- <h3>Yearly schedule</h3>
 				<a href="#"
 					><svg width="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.79 122.88">
 						<defs>
@@ -182,19 +272,65 @@
 							d="M65.59,67.32h38.82a9.41,9.41,0,0,1,9.38,9.38v36.79a9.41,9.41,0,0,1-9.38,9.39H65.59a9.41,9.41,0,0,1-9.38-9.39V76.7a9.41,9.41,0,0,1,9.38-9.38ZM60,11.56,79.73,30.07H60V11.56ZM20.89,70a2.14,2.14,0,0,0-2,2.23,2.1,2.1,0,0,0,2,2.22H45.67V70Zm0,16a2.14,2.14,0,0,0-2,2.23,2.1,2.1,0,0,0,2,2.23H45.67V85.91Zm0-47.89a2.14,2.14,0,0,0-2,2.23,2.11,2.11,0,0,0,2,2.23H43.81a2.14,2.14,0,0,0,2-2.23,2.11,2.11,0,0,0-2-2.23Zm0-16a2.14,2.14,0,0,0-2,2.23,2.1,2.1,0,0,0,2,2.23h12.6a2.14,2.14,0,0,0,2-2.23,2.11,2.11,0,0,0-2-2.23Zm0,31.93a2.14,2.14,0,0,0-2,2.23,2.12,2.12,0,0,0,2,2.23H59.65a2.14,2.14,0,0,0,2-2.23,2.1,2.1,0,0,0-2-2.23ZM90.72,32.72a3.28,3.28,0,0,0-2.39-3.17L59.23,1.21A3.27,3.27,0,0,0,56.69,0H5.91A5.91,5.91,0,0,0,0,5.91V107.12A5.91,5.91,0,0,0,5.91,113H45.76v-6.6H6.61V6.57H53.37V33.36a3.32,3.32,0,0,0,3.32,3.31H84.12V58.29h6.6V32.72Zm6.45,60.62a2.4,2.4,0,0,1,2.06,1c1.08,1.62-.4,3.22-1.42,4.35-2.91,3.19-9.49,9-10.92,10.66a2.37,2.37,0,0,1-3.72,0c-1.49-1.73-8.43-7.86-11.19-11-1-1.08-2.15-2.56-1.15-4a2.42,2.42,0,0,1,2.07-1h5.17V84.07A2.92,2.92,0,0,1,81,81.15H89.1A2.92,2.92,0,0,1,92,84.07v9.27Z"
 						/>
 					</svg>Download the current schedule</a
-				>
+				> -->
 			</div>
 		</div>
 	</div>
 </section>
 
 <style>
-	h2 {
-		font-size: 3.2rem;
-		line-height: 3.2rem;
-		margin-bottom: 6.4rem;
-		position: relative;
-		display: inline-block;
+	.button {
+		background-color: var(--clr-afx-pink);
+		padding: var(--space-xs) var(--space-md);
+		color: var(--clr-text);
+		border: none;
+		border-radius: 4px;
+	}
+	.button:hover {
+		text-decoration: dotted;
+		background-color: var(--clr-afx-purple);
+		transition: background-color 200ms ease-in-out;
+	}
+
+	img {
+		border-radius: var(--border-radius);
+	}
+
+	h3 {
+		color: var(--clr-afx-blue);
+	}
+
+	section {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		background-color: var(--clr-bg);
+		padding: var(--space-xxxxl) var(--space-xl);
+	}
+
+	.two-column {
+		margin-bottom: var(--space-lg);
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	ul li {
+		margin-bottom: 0.8rem;
+	}
+
+	#contact ul a {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+	}
+
+	#contact a svg {
+		margin-right: 0.8rem;
 	}
 </style>

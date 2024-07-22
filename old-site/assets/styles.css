@@ -1,7 +1,7 @@
 :root {
 	--ff-heading: 'Jura', Arial, Helvetica, sans-serif;
 	--ff-body: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
-	--text-color: #f5f5f5;
+	--clr-text: #f5f5f5;
 	--bg-color: #180a36;
 	--afx-blue: #0088d4;
 	--afx-purple: #7c4bc4;
@@ -54,7 +54,7 @@ h2,
 h3,
 p,
 li {
-	color: var(--text-color);
+	color: var(--clr-text);
 }
 
 h2 {

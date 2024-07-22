@@ -33,6 +33,8 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource-variable/jura": "^5.0.20",
-		"@fontsource/roboto": "^5.0.13"
+		"@fontsource/roboto": "^5.0.13",
+		"gsap": "npm:@gsap/shockingly@^3.12.5",
+		"photoswipe": "^5.4.4"
 	}
 }

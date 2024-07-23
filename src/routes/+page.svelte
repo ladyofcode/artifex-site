@@ -1,9 +1,18 @@
 <script>
+	import { onMount } from 'svelte';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { SplitText } from 'gsap/dist/SplitText'
+	
+	gsap.registerPlugin(ScrollTrigger, SplitText);
+	
+
 	import AlternatingContent from '$lib/components/homepage/AlternatingContent.svelte';
 	import SectionHeading from '$lib/components/SectionHeading.svelte';
 	import GridGallery from '$lib/components/homepage/GridGallery.svelte';
 	import SingleImage from '$lib/components/homepage/SingleImage.svelte';
 	import Header from '$lib/components/homepage/Header.svelte';
+	import PieceByPieceGallery from '$lib/components/homepage/piece_by_piece_gallery/PieceByPieceGallery.svelte';
 
 	const image_pbp1 = { src: 'images/piece_by_piece/pbp1.png', width: 842, height: 595 };
 	const image_pbp2 = 'images/piece_by_piece/pbp2.png';
@@ -114,6 +123,54 @@
 				<p>Personal, team, and freelance project support</p>
 			`
 	];
+
+	let CSSAGameJam;
+	
+	onMount(() => {
+		const ctx = gsap.context((self) => {
+			const image = self.selector("img");
+			const title = self.selector("h3");
+			const paragraph = self.selector("p");
+			const button = self.selector(".button");
+
+			const split = new SplitText(paragraph)
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: CSSAGameJam,
+					start: "top center",
+					toggleActions: 'play none none reverse',
+					markers: true
+				},
+			})
+
+			tl.from(image, {
+				opacity: 0,
+				duration: 1
+			})
+			.from(title, {
+				yPercent: 100,
+				skewY: -10,
+				opacity: 0
+			})
+			.from(split.lines, {
+				opacity: 0,
+				skewY: -10,
+				y: 40,
+				stagger: {
+					amount: 0.5
+				}
+			})
+			.from(button, {
+				opacity: 0,
+			})
+
+		}, CSSAGameJam);
+
+
+		return () => ctx.revert()
+	})
+	
 </script>
 
 <Header />
@@ -128,7 +185,7 @@
 	<div id="events" class="container">
 		<SectionHeading subheading="Game jams" id="game-jams" />
 
-		<div class="two-column">
+		<div class="two-column" bind:this={CSSAGameJam}>
 			<SingleImage image={image_gamejam2023} galleryId="gamejam" />
 			<div>
 				<h3>Artifex X CSSA annual game jam</h3>
@@ -163,6 +220,7 @@
 	</div>
 
 	<GridGallery images={images_pbp_slider} galleryId="pbp_group1" columns=4 />
+	<PieceByPieceGallery />
 </section>
 <section>
 	<div id="project" class="container">

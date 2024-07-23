@@ -24,7 +24,7 @@
             tl.fromTo(image1, {yPercent:100}, {
             rotation: 15,
             yPercent: 80,
-            duration: 1,
+            duration: 0.5,
             ease: "back.out"
             })
             .fromTo(
@@ -33,14 +33,14 @@
                     rotation: -15,
                     yPercent: 70,
                     ease: "back.out",
-                    duration: 1
+                    duration: 0.5
                 },
                 "-=0.5"
             )
             .to(image1, {
                 delay: 0.1,
                 rotation: 0,
-                duration: 1,
+                duration: 0.5,
                 yPercent: 0
             })
             .to(
@@ -48,7 +48,7 @@
                 {
                     delay: 0.1,
                     rotation: 0,
-                    duration: 1,
+                    duration: 0.5,
                     yPercent: 0
                 },
                 ">"

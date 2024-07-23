@@ -31,7 +31,7 @@
 					y: 0,
 					stagger: 0.1
 				}),
-			start: 'top center',
+			start: 'top 88%',
 			toggleActions: 'play none none reverse'
 		});
 

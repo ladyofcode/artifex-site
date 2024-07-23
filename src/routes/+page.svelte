@@ -124,48 +124,71 @@
 	];
 
 	let CSSAGameJam;
-
+	let pbp;
+	
 	onMount(() => {
 		const ctx = gsap.context((self) => {
-			const image = self.selector('img');
-			const title = self.selector('h3');
-			const paragraph = self.selector('p');
-			const button = self.selector('.button');
-
-			const split = new SplitText(paragraph);
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: CSSAGameJam,
-					start: 'top center',
-					toggleActions: 'play none none reverse'
-				}
-			});
+					start: "top bottom",
+					toggleActions: 'play none none reverse',
+				},
+			})
+
+			tweenSection(tl, self)
+
+		}, CSSAGameJam);
+
+		const ctx2 = gsap.context((self) => {
+
+
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: pbp,
+					start: "center bottom",
+					toggleActions: 'play none none reverse',
+				},
+			})
+
+			tweenSection(tl, self)
+
+		}, pbp)
+
+		function tweenSection(tl, self){
+			const image = self.selector("img");
+			const title = self.selector("h3");
+			const paragraph = self.selector("p");
+			const button = self.selector(".button");
+			const split = new SplitText(paragraph)
 
 			tl.from(image, {
 				opacity: 0,
 				duration: 1
 			})
-				.from(title, {
-					yPercent: 100,
-					skewY: -10,
-					opacity: 0
-				})
-				.from(split.lines, {
-					opacity: 0,
-					skewY: -10,
-					y: 40,
-					stagger: {
-						amount: 0.5
-					}
-				})
-				.from(button, {
-					opacity: 0
-				});
-		}, CSSAGameJam);
+			.from(title, {
+				yPercent: 100,
+				skewY: -10,
+				opacity: 0
+			})
+			.from(split.lines, {
+				opacity: 0,
+				skewY: -10,
+				y: 40,
+				stagger: {
+					amount: 0.1
+				}
+			}, "<")
+			.from(button, {
+				opacity: 0,
+			})
+		}
 
-		return () => ctx.revert();
-	});
+		return () => {ctx.revert(); ctx2.revert}
+	})
+
+	
 </script>
 
 <Header />
@@ -193,8 +216,8 @@
 				<a class="button" href="https://artifexanu.com/cssa-afx-game-jam">Join in</a>
 			</div>
 		</div>
-
-		<div>
+		
+		<div bind:this="{pbp}">
 			<h3>Piece by Piece</h3>
 			<p>
 				Piece by Piece is a game participants of the X Event Name Game Jam decided to continue to

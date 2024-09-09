@@ -3,7 +3,8 @@
 <slot />
 
 <style>
-    h1 {
+    h1{
         color: black;
     }
+    
 </style>

@@ -25,47 +25,47 @@
 		},
 		{
 			text: 'Upcoming',
-			href: ''
+			href: '/game-jam/upcoming'
 		},
 		{
 			text: 'Past Jams',
-			href: '',
+			href: '/game-jam/past-jams',
 			subItems: [
 				{
 					text: 'Jam 1',
-					href: ''
+					href: '/game-jam/past-jams/jam-1'
 				},
 				{
 					text: 'Jam 2',
-					href: ''
+					href: '/game-jam/past-jams/jam-2'
 				},
 				{
 					text: 'Jam 3',
-					href: ''
+					href: '/game-jam/past-jams/jam-3'
 				}
 			]
 		},
 		{
 			text: 'Rules',
-			href: '',
+			href: '/game-jam/rules',
 			subItems: [
 				{
 					text: 'Rule 1',
-					href: ''
+					href: '/game-jam/rules/rule-1'
 				},
 				{
 					text: 'Rule 2',
-					href: ''
+					href: '/game-jam/rules/rule-2'
 				},
 				{
 					text: 'Rule 3',
-					href: ''
+					href: '/game-jam/rules/rule-3'
 				}
 			]
 		},
 		{
 			text: 'Contact',
-			href: ''
+			href: '/game-jam/contact'
 		}
 	];
 </script>

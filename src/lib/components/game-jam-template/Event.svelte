@@ -26,26 +26,12 @@
 <h2>Events</h2>
 <ul>
 	{#each events as event, index (event)}
-		{#if index < comingIndex}
-			<li class="greyed">
-				<h3 class="greyed-text">{event.title}</h3>
-				<p class="greyed-text">
-					<span>{formatter.format(event.date).replaceAll(', ', ' ')}</span> @ {event.location}
-				</p>
-			</li>
-		{:else if index === comingIndex}
-			<li class="highlight">
-				<h3 class="highlight-text">{event.title}</h3>
-				<p class="highlight-text">
-					<span>{formatter.format(event.date).replaceAll(', ', ' ')}</span> @ {event.location}
-				</p>
-			</li>
-		{:else}
-			<li>
-				<h3>{event.title}</h3>
-				<p><span>{formatter.format(event.date).replaceAll(', ', ' ')}</span> @ {event.location}</p>
-			</li>
-		{/if}
+    <li class:greyed={index < comingIndex} class:highlight={index === comingIndex}>
+      <h3 class:greyed-text={index < comingIndex} class:highlight-text={index === comingIndex}>{event.title}</h3>
+      <p class:greyed-text={index < comingIndex} class:highlight-text={index === comingIndex}>
+        <span>{formatter.format(event.date).replaceAll(', ', ' ')}</span> @ {event.location}
+      </p>
+    </li>
 	{/each}
 </ul>
 </div>
@@ -68,17 +54,6 @@
   li:not(:last-child){
 		margin-bottom: 5px;
   }
-
-	h2 {
-		color: black;
-	}
-
-	h3,
-	p {
-		font-family: 'Jura Variable', Arial, Helvetica, sans-serif;
-		color: black;
-		margin: 0;
-	}
 
 	h3 {
 		margin-bottom: 5px;

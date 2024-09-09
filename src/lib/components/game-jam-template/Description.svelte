@@ -5,7 +5,7 @@
 
 <div class="description-wrapper">
     <div class="description">
-      {description}
+      <p>{description}</p>
     </div>
     <!-- <div class="image-mocker"></div> -->
      <div class="image-container"><img src={imageSrc} alt="mock"/></div>
@@ -14,16 +14,15 @@
 <style>
 	.description-wrapper{
 		display: flex;
-    gap: 40px;
-    align-items: start;
+    gap: 80px;
     justify-content: space-between;
-    padding-inline: 20px;
 	}
 
   .description{
     padding-block: 10px;
     max-width: 500px;
     line-height: 2;
+    font-size: 1.1rem;
   }
 
   img{

@@ -1,10 +1,16 @@
-<h1>The second layout!</h1>
+<script>
+	import Navbar from "./Navbar.svelte";
+</script>
 
-<slot />
+<main>
+    <Navbar />
+    <slot />
+</main>
 
 <style>
-    h1{
-        color: black;
+    main{
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
     }
-    
 </style>

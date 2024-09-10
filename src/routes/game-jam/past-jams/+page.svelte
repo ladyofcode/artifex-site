@@ -7,7 +7,10 @@
 
 <section>
 
-    <h1>Past Game Jams</h1>
+    <h1>Past game jams</h1>
+
+	<p>Below is a list of past Game Jams we've co-hosted along with the CSSA at the ANU.</p>
+
 	<div class="page-content">
 		{#each data.posts as post}
 			<a href={'/past-jams/' + post.slug}>

@@ -48,7 +48,7 @@
 
 <div class="navigation-container">
 	<h1>Logo</h1>
-	<input type="checkbox" id="menu-toggle"/>
+	<input type="checkbox" id="menu-toggle" />
 	<label for="menu-toggle" class="burger-wrapper">
 		<div class="hamburger"></div>
 	</label>
@@ -88,7 +88,6 @@
 </div>
 
 <style>
-
 	a {
 		text-decoration: none;
 		color: var(--clr-text);
@@ -101,12 +100,12 @@
 		padding-right: var(--space-md);
 	}
 
-    /* input for burger */
-    #menu-toggle {
+	/* input for burger */
+	#menu-toggle {
 		display: none;
 	}
 
-    /* Burger stylings */
+	/* Burger stylings */
 	.navigation-container > .burger-wrapper {
 		margin-left: auto;
 		cursor: pointer;
@@ -114,7 +113,7 @@
 		color: var(--clr-text);
 	}
 
-    .burger-wrapper {
+	.burger-wrapper {
 		width: 50px;
 		height: 50px;
 	}
@@ -143,13 +142,13 @@
 		top: 10px;
 	}
 
-    #menu-toggle:checked + label + nav {
-        left: 0;
+	#menu-toggle:checked + label + nav {
+		left: 0;
 	}
-    
-    /* Burger to X */
+
+	/* Burger to X */
 	#menu-toggle:checked + .burger-wrapper > .hamburger {
-        background: transparent;
+		background: transparent;
 	}
 
 	#menu-toggle:checked + .burger-wrapper > .hamburger::before,
@@ -165,7 +164,7 @@
 		transform: rotate(-45deg);
 	}
 
-    /* Navigation */
+	/* Navigation */
 	nav {
 		background-color: black;
 		width: 100vw;
@@ -179,7 +178,7 @@
 		transition: 0.3s;
 	}
 
-    .main-menu {
+	.main-menu {
 		margin-left: var(--space-xxxl);
 		margin-top: 104px;
 		padding-left: 0;
@@ -197,9 +196,9 @@
 	.selected {
 		list-style-type: disc;
 	}
-    
+
 	li svg {
-        display: inline;
+		display: inline;
 		margin-bottom: 2px;
 	}
 
@@ -207,7 +206,7 @@
 		margin-top: var(--space-sm);
 	}
 
-    /* Sub menu */
+	/* Sub menu */
 	.item .subcontent {
 		display: none;
 		padding-left: 0.75rem;
@@ -221,82 +220,82 @@
 		font-size: 1rem;
 		margin-top: var(--space-xs);
 	}
-	
+
 	@media (min-width: 1000px) {
-        .navigation-container{
-            align-items: center;
-            padding: var(--space-xxxl) 168px 0 168px;
-        }
+		.navigation-container {
+			align-items: center;
+			padding: var(--space-xxxl) 168px 0 168px;
+		}
 		.burger-wrapper {
 			display: none;
 		}
 
 		nav {
-            position: static;
+			position: static;
 			background-color: transparent;
 			display: flex;
 			height: auto;
 		}
 
-        .main-menu{
-            margin-top: 0;
-            margin-left: auto;
-            display: flex;
-            text-wrap: nowrap;
-            gap: var(--space-lg);
-        }
+		.main-menu {
+			margin-top: 0;
+			margin-left: auto;
+			display: flex;
+			text-wrap: nowrap;
+			gap: var(--space-lg);
+		}
 
 		.item {
-            list-style: none;
-            position: relative;
-            cursor: pointer;
-            font-size: 16px;
-        }
+			list-style: none;
+			position: relative;
+			cursor: pointer;
+			font-size: 16px;
+		}
 
-        .item:hover .subcontent{
-            display: block;
-        }
+		.item:hover .subcontent{
+			display: block;
+		}
 
-        .item .subcontent{
-            position: absolute;
-            background-color: #E07E24;
-            color: black;
-            left: 50%;
-            top: 130%;
-            transform: translateX(-50%);
-            width: auto;
-            text-align: center;
-            padding-left: 0;
-            padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--border-radius);
-            text-wrap: nowrap;
-        }
+		.item .subcontent {
+			position: absolute;
+			background-color: #e07e24;
+			color: black;
+			left: 50%;
+			top: 100%;
+			transform: translateX(-50%);
+			width: auto;
+			text-align: center;
+			padding-left: 0;
+			padding: var(--space-sm) var(--space-xl);
+			border-radius: var(--border-radius);
+			text-wrap: nowrap;
+		}
 
-        .subcontent li{
-            list-style: none;
-            padding-left: 0
-        }
+		.subcontent li {
+			list-style: none;
+			padding-left: 0;
+		}
 
-        .subcontent a {
-            color: black;
-        }
+		.subcontent a {
+			color: black;
+		}
 
-        .item:not(:first-child){
-            margin-top: 0;
-        }
+		.item:not(:first-child) {
+			margin-top: 0;
+		}
 
-        .item.selected a::before{
-            content: "•";
-            font-size: 32px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #ffc700;
-        }
+		.item.selected a::before {
+			content: '•';
+			font-size: 32px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #ffc700;
+		}
 
-        .menu-caret{
-            pointer-events: none;
-        }
+		.menu-caret {
+			pointer-events: none;
+		}
 	}
 </style>

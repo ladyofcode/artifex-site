@@ -16,58 +16,8 @@
 
 	onMount(() => {
 		currentLocation = window.location.href;
-	});
+    })
 
-	const navItems = [
-		{
-			text: 'Home',
-			href: '/game-jam'
-		},
-		{
-			text: 'Upcoming',
-			href: '/game-jam/upcoming'
-		},
-		{
-			text: 'Past Jams',
-			href: '/game-jam/past-jams',
-			subItems: [
-				{
-					text: 'Jam 1',
-					href: '/game-jam/past-jams/jam-1'
-				},
-				{
-					text: 'Jam 2',
-					href: '/game-jam/past-jams/jam-2'
-				},
-				{
-					text: 'Jam 3',
-					href: '/game-jam/past-jams/jam-3'
-				}
-			]
-		},
-		{
-			text: 'Rules',
-			href: '/game-jam/rules',
-			subItems: [
-				{
-					text: 'Rule 1',
-					href: '/game-jam/rules/rule-1'
-				},
-				{
-					text: 'Rule 2',
-					href: '/game-jam/rules/rule-2'
-				},
-				{
-					text: 'Rule 3',
-					href: '/game-jam/rules/rule-3'
-				}
-			]
-		},
-		{
-			text: 'Contact',
-			href: '/game-jam/contact'
-		}
-	];
 </script>
 
 <div class="navigation-container">

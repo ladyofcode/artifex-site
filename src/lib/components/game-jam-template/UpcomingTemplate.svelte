@@ -71,6 +71,7 @@
 		display: flex;
 		justify-content: center;
 		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    padding-inline: var(--space-xxl);
 	}
 
 	.template-wrapper > div {

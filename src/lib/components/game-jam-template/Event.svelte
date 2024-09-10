@@ -1,6 +1,7 @@
 <script>
 	import '@fontsource-variable/jura';
-	export let events;
+	export let isActive = true; // : boolean  // If true, events will be highlighted and greyed out
+	export let events; // : { date : Date, location: string, title: string }
 
 	events.sort((a, b) => {
 		return a.date.getTime() - b.date.getTime();
@@ -26,9 +27,9 @@
 <h2>Events</h2>
 <ul>
 	{#each events as event, index (event)}
-    <li class:greyed={index < comingIndex} class:highlight={index === comingIndex}>
-      <h3 class:greyed-text={index < comingIndex} class:highlight-text={index === comingIndex}>{event.title}</h3>
-      <p class:greyed-text={index < comingIndex} class:highlight-text={index === comingIndex}>
+    <li class:greyed={isActive && index < comingIndex} class:highlight={isActive && index === comingIndex}>
+      <h3 class:greyed-text={isActive && index < comingIndex} class:highlight-text={isActive && index === comingIndex}>{event.title}</h3>
+      <p class:greyed-text={isActive && index < comingIndex} class:highlight-text={isActive && index === comingIndex}>
         <span>{formatter.format(event.date).replaceAll(', ', ' ')}</span> @ {event.location}
       </p>
     </li>
@@ -55,8 +56,13 @@
 		margin-bottom: 5px;
   }
 
+	h2, h3{
+		color: black;
+	}
+
 	h3 {
-		margin-bottom: 5px;
+		margin-block-start: 0;
+		margin-block-end: 5px;
 	}
 
 	p {

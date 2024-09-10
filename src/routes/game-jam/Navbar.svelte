@@ -1,6 +1,8 @@
 <script>
 	import { text } from '@sveltejs/kit';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+
+	export let navItems;
 
 	function toSlug(text) {
 		return text.replace(' ', '-');
@@ -11,12 +13,36 @@
 		if (!currentLocation) return '';
 		if (!href) return '';
 
-		return currentLocation.includes(href) ? 'selected' : '';
+		const splitDirectoryCurrent = currentLocation.split('/');
+		const lastDirectoryCurrent = splitDirectoryCurrent[splitDirectoryCurrent.length - 1];
+
+		const splitDirectoryHRef = href.split('/');
+		const lastDirectoryHRef = splitDirectoryHRef[splitDirectoryHRef.length - 1];
+
+		return lastDirectoryCurrent.includes(lastDirectoryHRef) ? 'selected' : '';
 	};
+
+    let observer;
 
 	onMount(() => {
 		currentLocation = window.location.href;
+		const body = document.querySelector('body');
+		observer = new MutationObserver((mutations) => {
+			if (currentLocation !== document.location.href) {
+				currentLocation = document.location.href;
+			}
+		});
+		observer.observe(body, { childList: true, subtree: true });
+
+	});
+    
+    onDestroy(() => {
+        if(observer){
+            observer.disconnect()
+        }
     })
+    
+    
 
 </script>
 

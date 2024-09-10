@@ -22,7 +22,7 @@
 		return lastDirectoryCurrent.includes(lastDirectoryHRef) ? 'selected' : '';
 	};
 
-    let observer;
+	let observer;
 
 	onMount(() => {
 		currentLocation = window.location.href;
@@ -35,12 +35,12 @@
 		observer.observe(body, { childList: true, subtree: true });
 
 	});
-    
-    onDestroy(() => {
-        if(observer){
-            observer.disconnect()
-        }
-    })
+
+	onDestroy(() => {
+		if(observer){
+			observer.disconnect()
+		}
+	})
     
     
 
@@ -121,6 +121,8 @@
 	.hamburger {
 		position: relative;
 		margin-top: var(--space-md);
+        transition: background 10ms 300ms ease;
+
 	}
 
 	.hamburger,
@@ -151,9 +153,17 @@
 		background: transparent;
 	}
 
+    .hamburger::before,
+    .hamburger::after{
+        transition: top 300ms 350ms ease,
+            transform 300ms 50ms;
+    }
+
 	#menu-toggle:checked + .burger-wrapper > .hamburger::before,
 	#menu-toggle:checked + .burger-wrapper > .hamburger::after {
 		top: 0;
+        transition: top 300ms 50ms ease,
+            transform 300ms 350ms ease;
 	}
 
 	#menu-toggle:checked + .burger-wrapper > .hamburger::before {
@@ -269,7 +279,7 @@
 			padding: var(--space-sm) var(--space-xl);
 			border-radius: var(--border-radius);
 			text-wrap: nowrap;
-		}
+            		}
 
 		.subcontent li {
 			list-style: none;

@@ -4,7 +4,8 @@ export let sponsors = [];
 </script>
 
 <div class="wrapper">
-<h2> Sponsor{sponsors.length > 1? "s":""}</h2>
+<!-- <h2> Sponsor{sponsors.length > 1? "s":""}</h2> -->
+<h2>Supported by</h2>
 <div class="sponsor-gallery">
   {#each sponsors as sponsor}
     <a class="sponsor-wrapper" href={sponsor.url}>

@@ -3,34 +3,12 @@
 	import Event from '$lib/components/game-jam-template/Event.svelte';
 	import Sponsors from '$lib/components/game-jam-template/Sponsors.svelte';
   
-	const mockDesc =
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
-		'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco' +
-		'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in' +
-		'voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat' +
-		'non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-	const mockImageSrc = '/images/piece_by_piece/pbp3.png';
-	const mockEvents = [
-		{ date: new Date('2024-9-5 17:00'), location: 'Somewhere', title: 'Event 1' },
-		{ date: new Date('2024-9-10 19:00'), location: 'Somewhere', title: 'Event 2' },
-		{ date: new Date('2024-9-12 12:00'), location: 'Somewhere', title: 'Event 3' }
-	];
-	const mockGuideBullets = [
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-		'laboris nisi ut aliquip ex ea commodo consequat.',
-		'voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-		'on proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-	];
-	const mockSubmissionDesc =
-		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
-		'labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco' +
-		'laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.';
-	const mockSponsorData = [
-		{ name: 'Knight', imageSrc: '/images/piece_by_piece/pbp7.png' },
-		{ name: 'King', imageSrc: '/images/piece_by_piece/pbp10.png' },
-    { name: 'The Honorable Bishop the Third', imageSrc: '/images/piece_by_piece/pbp14.png' },
-		{ name: 'Parry', imageSrc: '/images/piece_by_piece/pbp4.png' },
-	];
+	export let description; // : { description: string, imageSrc: string }
+	export let events; // : { date : Date, location: string, title: string }[]
+	export let guide; // : { intro: string, bullets: string[] }
+	export let submission; // : { description: string, url: string }
+	export let sponsors; // : { name: string, imageSrc: string, url: string }[]
+
 </script>
 
 <div class="template-wrapper">
@@ -38,17 +16,17 @@
 		<div class="jam-title">
 			<h1>Game Jam 2025</h1>
 		</div>
-		<Description description={mockDesc} imageSrc={mockImageSrc}></Description>
+		<Description description={description.description} imageSrc={description.imageSrc}></Description>
 
 		<a class="link-button" href="rule-link" tabindex="0">Read the rules</a>
 
-		<Event events={mockEvents}></Event>
+		<Event events={events}></Event>
 
 		<div class="guide-wrapper">
 			<h2>Guide</h2>
-			<p>Below is advice to help you with the best possible outcome:</p>
+			<p>{guide.intro}</p>
 			<ul>
-				{#each mockGuideBullets as bullet}
+				{#each guide.bullets as bullet}
 					<li><p>{bullet}</p></li>
 				{/each}
 			</ul>
@@ -56,12 +34,12 @@
 
 		<div class="submission-wrapper">
 			<h2>Submission</h2>
-			<p>{mockSubmissionDesc}</p>
+			<p>{submission.description}</p>
 			<br />
-			<a class="link-button" href="submit-link">Submit game</a>
+			<a class="link-button" href={submission.url}>Submit game</a>
 		</div>
 
-		<Sponsors sponsors={mockSponsorData}></Sponsors>
+		<Sponsors sponsors={sponsors}></Sponsors>
 	</div>
 </div>
 

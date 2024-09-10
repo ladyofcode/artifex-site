@@ -1,5 +1,5 @@
 <script>
-// sponsors: {name: string, imageSrc: string}[]
+// sponsors: { name: string, imageSrc: string, url: string }[]
 export let sponsors = [];
 </script>
 
@@ -7,10 +7,10 @@ export let sponsors = [];
 <h2> Sponsor{sponsors.length > 1? "s":""}</h2>
 <div class="sponsor-gallery">
   {#each sponsors as sponsor}
-    <div class="sponsor-wrapper">
+    <a class="sponsor-wrapper" href={sponsor.url}>
       <img src={sponsor.imageSrc} alt=""/>
       <h2>{sponsor.name}</h2>
-    </div>
+    </a>
   {/each}
 </div>
 </div>
@@ -31,6 +31,11 @@ export let sponsors = [];
 .sponsor-wrapper {
   width: 320px;
   text-align: center;
+}
+
+.sponsor-wrapper:hover{
+  text-underline-offset: 2px;
+  text-decoration-color: black;
 }
 
 .sponsor-wrapper > img{

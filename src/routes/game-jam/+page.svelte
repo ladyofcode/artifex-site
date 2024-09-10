@@ -1,5 +1,5 @@
 <script>
-    const banner_image ='game-jams/images/banner_image';
+    const banner_image ='game-jams/images/banner_icons.png';
 </script>
 
 <h1>Annual game jams</h1>

@@ -1,5 +1,5 @@
 ---
-title: These are my rules
+title: Game Jam rules
 slug: rules
 ---
 # Rules
@@ -123,8 +123,8 @@ conduct**
   warnings, mutes, or bans is considered harassment and will result in a
   block and permanent ban. If you have honest reason to believe there
   was a misunderstanding, contact us through
-  [anucssa@anu.edu.au](mailto:anucssa@anu.edu.au) or
-  [artifexanu@gmail.com](mailto:artifexanu@gmail.com) **_only_**.
+  [artifexanu@gmail.com](mailto:artifexanu@gmail.com) or
+  [anucssa@anu.edu.au](mailto:anucssa@anu.edu.au) **_only_**.
 
 - Remember! This game jam is meant to be a **safe space** — let's
   keep it that way!
@@ -132,8 +132,8 @@ conduct**
 **If you find a violation of our code of conduct,** contact a jam host
 via one of the following methods:
 
-[anucssa@anu.edu.au](mailto:anucssa@anu.edu.au) or message
-committee in our Discord Server
-
 [artifexanu@gmail.com](mailto:artifexanu@gmail.com) or
 message Core in our Discord Server
+
+[anucssa@anu.edu.au](mailto:anucssa@anu.edu.au) or message
+committee in our Discord Server

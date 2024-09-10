@@ -46,8 +46,8 @@
 
 <style>
   .jam-title {
-    margin-block-start: 20px;
-    margin-block-end: 100px;
+    margin-block-start: var(--space-md);
+    margin-block-end: var(--space-xxxxl);
   }
 
 	h1 {

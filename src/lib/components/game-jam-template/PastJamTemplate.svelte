@@ -54,8 +54,11 @@
 
 <div class="template-wrapper">
   <div>
-    <h1>Game Jam 2024</h1>
-    <h2 style="margin-bottom: 30px;">Theme: Time loop</h2>
+    <div class="jam-title">
+      <h1>Game Jam 2024</h1>
+      <h2 style="margin-bottom: 30px;">Theme: Time loop</h2>
+    </div>
+    
 
     <Description description={mockDescription.description} imageSrc={mockDescription.imageSrc}></Description>
 
@@ -71,6 +74,19 @@
 
 
 <style>
+  .jam-title {
+    margin-block-start: var(--space-md);
+    margin-block-end: var(--space-xxxxl);
+  }
+
+  .jam-title > h1 {
+    font-size: 3rem;
+  }
+
+  .jam-title > h2 {
+    padding-inline-start: var(--space-xs);
+  }
+
   :global(h1), :global(h2), :global(h3){
     color: black;
     margin: 0;

@@ -3,6 +3,7 @@
 	import Event from '$lib/components/game-jam-template/Event.svelte';
 	import Sponsors from '$lib/components/game-jam-template/Sponsors.svelte';
   
+	export let jamTitle; // : string
 	export let description; // : { description: string, imageSrc: string }
 	export let events; // : { date : Date, location: string, title: string }[]
 	export let guide; // : { intro: string, bullets: string[] }
@@ -14,7 +15,7 @@
 <div class="template-wrapper">
 	<div>
 		<div class="jam-title">
-			<h1>Game Jam 2025</h1>
+			<h1>{jamTitle}</h1>
 		</div>
 		<Description description={description.description} imageSrc={description.imageSrc}></Description>
 
@@ -45,8 +46,8 @@
 
 <style>
   .jam-title {
-    margin-block-start: 20px;
-    margin-block-end: 100px;
+    margin-block-start: var(--space-md);
+    margin-block-end: var(--space-xxxxl);
   }
 
 	h1 {
@@ -70,6 +71,7 @@
 		display: flex;
 		justify-content: center;
 		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    padding-inline: var(--space-xxl);
 	}
 
 	.template-wrapper > div {

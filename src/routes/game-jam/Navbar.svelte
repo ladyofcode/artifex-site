@@ -1,5 +1,6 @@
 <script>
 	import { text } from '@sveltejs/kit';
+	import gsap from 'gsap';
 	import { onDestroy, onMount } from 'svelte';
 
 	export let navItems;
@@ -43,6 +44,32 @@
 	})
     
     
+    function toggleShow(event){
+        const target = event.target;
+        const toShow = target.nextElementSibling;
+        const computedStyleMap = toShow.computedStyleMap();
+        const opacity = computedStyleMap.get("opacity").value;
+        const isHidden = opacity === 0;
+
+        gsap.killTweensOf(toShow)
+
+        const timeline = gsap.timeline();
+        
+        if(isHidden){
+            timeline.to(toShow, 
+            {
+                opacity: 1,
+                height: "auto"
+            })
+        }
+        else{
+            timeline.to(toShow, {
+                opacity: 0,
+                height: "0px",
+                overflow: "hidden"
+            })
+        }
+    }
 
 </script>
 
@@ -60,17 +87,19 @@
 						{item.text}
 					</a>
 					{#if item.subItems && item.subItems.length > 0}
-						<a href="#{toSlug(item.text)}" class="menu-caret">
+                        <span on:click={toggleShow} role="button" class="menu-caret">
 							<svg
 								width="12"
 								height="7"
 								viewBox="0 0 12 7"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
+                                class="no-pointer"
 							>
-								<path d="M1 1L6 6L11 1" stroke="white" />
+								<path d="M1 1L6 6L11 1" class="no-pointer" stroke="white" />
 							</svg>
-						</a>
+                        </span>
+
 						<ul class="subcontent">
 							{#each item.subItems as subItem}
 								<li>
@@ -218,12 +247,10 @@
 
 	/* Sub menu */
 	.item .subcontent {
-		display: none;
+		opacity: 0;
+        height: 0;
+        overflow: hidden;
 		padding-left: 0.75rem;
-	}
-
-	.item:target .subcontent {
-		display: block;
 	}
 
 	.subcontent li {
@@ -231,6 +258,12 @@
 		margin-top: var(--space-xs);
 	}
 
+    .menu-caret{
+        cursor: pointer;
+    }
+    .no-pointer{
+        pointer-events: none;
+    }
 	@media (min-width: 1000px) {
 		.navigation-container {
 			align-items: center;
@@ -262,24 +295,32 @@
 			font-size: 16px;
 		}
 
-		.item:hover .subcontent{
-			display: block;
-		}
-
-		.item .subcontent {
-			position: absolute;
+        .item .subcontent{
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            pointer-events: none;
+            transition: 0.2s linear;
+            position: absolute;
 			background-color: #e07e24;
 			color: black;
 			left: 50%;
 			top: 100%;
 			transform: translateX(-50%);
-			width: auto;
 			text-align: center;
 			padding-left: 0;
-			padding: var(--space-sm) var(--space-xl);
 			border-radius: var(--border-radius);
 			text-wrap: nowrap;
-            		}
+        }
+
+		.item:hover .subcontent{
+			opacity: 1;
+            height: auto;
+            overflow: auto;
+            pointer-events: all;
+			padding: var(--space-sm) var(--space-xl);
+            transition: 0.2s linear;
+		}
 
 		.subcontent li {
 			list-style: none;

@@ -1,4 +1,6 @@
 <script>
+    import '../../game-jam.css';
+
 	import Navbar from "./Navbar.svelte";
 
     export let data;
@@ -52,6 +54,7 @@
 </main>
 
 <style>
+
     main{
         background-color: black;
         height: 100vh;

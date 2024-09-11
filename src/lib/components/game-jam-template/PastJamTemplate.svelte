@@ -16,18 +16,6 @@
 	export let sponsors; // : { name: string, imageSrc: string, url: string }[]
   // export let gameData;
 
-	const mockGame = {
-		images: [
-			{src:'/game-jam/images/2024/games/cant_be_late_2024.png', width: 315, height: 250},
-			{src:'/game-jam/images/2024/games/cant_be_late_2024_1.png', width: 794, height: 466},
-			{src:'/game-jam/images/2024/games/cant_be_late_2024_2.png', width: 794, height: 441},
-			{src:'/game-jam/images/2024/games/cant_be_late_2024_3.png', width: 794, height: 436},
-		],
-    gameName: "Can't Be Late",
-    members: ['Jiayi Fan', 'Xiuchen Gu', 'Yang Li', 'Patrick Haesler', 'yeyeovo'],
-    gameUrl: 'https://www.google.com',    
-	};
-
   // Real data for Game Jam 2024
   const gameData2024 = [
     {

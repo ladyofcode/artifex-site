@@ -86,7 +86,7 @@
 		padding-inline: 10px;
 		padding-block: 10px;
 		border-radius: 14px;
-		background-color: #dddddd;
+		background-color: rgb(255, 234, 195);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -96,7 +96,6 @@
 		border-radius: 4px;
 		width: 100%;
 		aspect-ratio: 4/3;
-		background-color: #eeeeee;
 		overflow: clip;
     position: relative;
 	}

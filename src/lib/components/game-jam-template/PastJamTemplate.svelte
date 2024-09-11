@@ -22,7 +22,7 @@
 			{src:'/game-jam/images/2024/games/cant_be_late_2024_3.png', width: 794, height: 436},
 		],
     gameName: "Can't Be Late",
-    members: ['Idkg Uodsf', 'Vide Odsge', 'Poigd', 'Qjdi Xili'],
+    members: ['Jiayi Fan', 'Xiuchen Gu', 'Yang Li', 'Patrick Haesler', 'yeyeovo'],
     gameUrl: 'https://www.google.com',
 	};
 </script>
@@ -45,7 +45,8 @@
 		<Sponsors {sponsors}></Sponsors>
 
 		<GameCard images={mockGame.images} gameName={mockGame.gameName} members={mockGame.members} gameUrl={mockGame.gameUrl}></GameCard>
-	</div>
+    <div style="margin-block: 40px;"></div>
+  </div>
 </div>
 
 <style>

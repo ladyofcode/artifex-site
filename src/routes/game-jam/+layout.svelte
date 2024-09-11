@@ -25,20 +25,13 @@
 		},
 		{
 			text: 'Rules',
-			href: '/game-jam/rules',
+			href: '/rules',
 			subItems: [
 				{
-					text: 'Rule 1',
-					href: '/game-jam/rules/rule-1'
+					text: 'Faq',
+					href: '/faq'
 				},
-				{
-					text: 'Rule 2',
-					href: '/game-jam/rules/rule-2'
-				},
-				{
-					text: 'Rule 3',
-					href: '/game-jam/rules/rule-3'
-				}
+
 			]
 		},
 		{

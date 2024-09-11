@@ -8,13 +8,16 @@
 	export let gameName; // : string
 	export let members; // : string[]
   export let gameUrl; // : string
-	export let imgWidth = 300;
+	export let isPlayable; // : bool
+	export let contentWidth = 300;
+
+	let gallery;
 
 	const imageCount = images.length;
 	let currentIndex = 0;
 
 	function slideImage(newIndex) {
-		gsap.to('.gallery', {x: newIndex * -imgWidth});
+		gsap.to(gallery, {x: newIndex * -contentWidth});
     currentIndex = newIndex;
 	}
 
@@ -30,7 +33,7 @@
 
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({
-			gallery: '#gallery',
+			gallery: gallery,
 			children: 'a',
 			pswpModule: () => import('photoswipe')
 		});
@@ -47,13 +50,13 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
         </svg>
       </button>
-      <button class:invisible={currentIndex===imageCount - 1} on:click={nextImage}>
+      <button class:invisible={imageCount === 0 || currentIndex===imageCount - 1} on:click={nextImage}>
         <svg class="right-arrow" class:invisible={currentIndex===imageCount - 1} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3">
           <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
       </button>
     </div>
-		<div class="gallery" id="gallery">
+		<div class="gallery" bind:this={gallery}>
 			{#each images as image}
 				<a
 					class="image-wrapper"
@@ -67,13 +70,14 @@
 			{/each}
 		</div>
 	</div>
-  <a class="gameTitle" href={gameUrl}><h2>{gameName}</h2></a>
+  <h2 class="gameTitle">{gameName}</h2>
   <h4>Created by</h4>
 	<ul>
 		{#each members as member}
 			<li>{member}</li>
 		{/each}
 	</ul>
+	<a href={gameUrl} class="play-button">{isPlayable?"Play Game":"View Game"}</a>
 </div>
 
 <style>
@@ -86,7 +90,7 @@
 		padding-inline: 10px;
 		padding-block: 10px;
 		border-radius: 14px;
-		background-color: rgb(255, 234, 195);
+		background-color: rgb(218, 220, 222);
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -160,6 +164,7 @@
 
 	ul {
 		padding-left: 12px;
+		height: 120px;
 	}
 
   li::marker {
@@ -172,6 +177,27 @@
 	}
 
   .gameTitle {
-    text-decoration-color: black;
+		margin-block-start: var(--space-xs);
+		height: 72px;
   }
+
+	.play-button {
+		border: 0;
+		border-radius: var(--border-radius);
+		padding-block: var(--space-xs);
+		padding-inline: var(--space-md);
+		margin-block-start: var(--space-xs);
+		align-self: center;
+		font-weight: 700;
+    background-color: rgb(244,244,244);
+		cursor: pointer;
+		font-family: var(--ff-heading);
+		text-decoration: none;
+		color: black;
+	}
+
+	.play-button:hover:not(:focus) {
+		background-color: rgb(69, 69, 69);
+		color: #DDDDDD;
+	}
 </style>

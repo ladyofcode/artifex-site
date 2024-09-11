@@ -4,9 +4,10 @@
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
 
-	export let images; // : string[]
+	export let images; // : {src: string, width: number, height: number}[]
 	export let gameName; // : string
 	export let members; // : string[]
+  export let gameUrl; // : string
 	export let imgWidth = 300;
 
 	const imageCount = images.length;
@@ -16,6 +17,16 @@
 		gsap.to('.gallery', {x: newIndex * -imgWidth});
     currentIndex = newIndex;
 	}
+
+  function nextImage(){
+    currentIndex += 1;
+    slideImage(currentIndex);
+  }
+
+  function previousImage(){
+    currentIndex -= 1;
+    slideImage(currentIndex);
+  }
 
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({
@@ -31,29 +42,33 @@
 <div class="card-wrapper">
 	<div class="gallery-wrapper">
     <div class="controller">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+      <button class:invisible={currentIndex===0} on:click={previousImage}>
+        <svg class="left-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>      
+        </svg>
+      </button>
+      <button class:invisible={currentIndex===imageCount - 1} on:click={nextImage}>
+        <svg class="right-arrow" class:invisible={currentIndex===imageCount - 1} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
     </div>
 		<div class="gallery" id="gallery">
 			{#each images as image}
 				<a
 					class="image-wrapper"
-					href={image}
-					data-pswp-width={1024}
-					data-pswp-height={768}
+					href={image.src}
+					data-pswp-width={image.width}
+					data-pswp-height={image.height}
 					rel="noreferrer"
 				>
-					<img src={image} alt="" />
+					<img src={image.src} alt="" />
 				</a>
 			{/each}
 		</div>
 	</div>
-	<h2>{gameName}</h2>
-  <h3>Created by</h3>
+  <a class="gameTitle" href={gameUrl}><h2>{gameName}</h2></a>
+  <h4>Created by</h4>
 	<ul>
 		{#each members as member}
 			<li>{member}</li>
@@ -72,6 +87,9 @@
 		padding-block: 10px;
 		border-radius: 14px;
 		background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 	}
 
 	.gallery-wrapper {
@@ -89,16 +107,37 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255,255,255,0.8);
-    pointer-events: none;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    pointer-events: none;
   }
 
-  svg {
-    size: 1px;
+  .controller > button{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    width: 10%;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .controller svg {
+    width: 100%;
+    aspect-ratio: 1/1;
+    stroke: antiquewhite;
+    filter: drop-shadow(0 0 1px black);
+  }
+
+  .controller svg:hover {
+    stroke: white;
+  }
+
+  .invisible {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .gallery {
@@ -116,16 +155,24 @@
 	.gallery img {
 		width: 100%;
 		height: 100%;
-		object-fit: contain;
+		object-fit: scale-down;
 		object-position: center;
 	}
 
 	ul {
-		padding-left: 24px;
+		padding-left: 12px;
 	}
 
-	li {
+  li::marker {
+    content: none;
+  }
+
+	li, h4 {
 		font-family: var(--ff-body);
 		color: black;
 	}
+
+  .gameTitle {
+    text-decoration-color: black;
+  }
 </style>

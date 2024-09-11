@@ -301,16 +301,6 @@
             overflow: hidden;
             pointer-events: none;
             transition: 0.2s linear;
-            position: absolute;
-			background-color: #e07e24;
-			color: black;
-			left: 50%;
-			top: 100%;
-			transform: translateX(-50%);
-			text-align: center;
-			padding-left: 0;
-			border-radius: var(--border-radius);
-			text-wrap: nowrap;
         }
 
 		.item:hover .subcontent{
@@ -321,6 +311,20 @@
 			padding: var(--space-sm) var(--space-xl);
             transition: 0.2s linear;
 		}
+
+		.item .subcontent {
+			position: absolute;
+			background-color: #e07e24;
+			color: black;
+			left: 50%;
+			top: 100%;
+			transform: translateX(-50%);
+			width: auto;
+			text-align: center;
+			padding-left: 0;
+			border-radius: var(--border-radius);
+			text-wrap: nowrap;
+        }
 
 		.subcontent li {
 			list-style: none;

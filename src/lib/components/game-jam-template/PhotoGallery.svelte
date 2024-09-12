@@ -46,7 +46,6 @@
 	}
 
 	:global(.game-gallery-wrapper > *:first-child) {
-		background-color: black;
 		grid-column: 1 / 3;
 		grid-row: 1 / 3;
 		border-radius: var(--border-radius);

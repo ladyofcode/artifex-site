@@ -51,7 +51,6 @@
 <style>
 
     main{
-        background-color: black;
         height: 100vh;
         width: 100vw;
     }

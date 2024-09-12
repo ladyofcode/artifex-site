@@ -1,3 +1,18 @@
+:root {
+    --clr-accent-red: red;
+    --clr-accent-green: green;
+    --clr-accent-yellow: yellow;
+}
 body {
     background-color: #1F1F1F;
+}
+.particles {
+    position: absolute;
+    z-index: -1;
+}
+
+.page-container {
+    width: 100%;
+    max-width: var(--width-site);
+    margin: 0 auto;
 }

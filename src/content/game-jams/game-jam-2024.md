@@ -28,7 +28,6 @@ Many thanks to our  our sponsors, X and Y.
 
 [Ghost Hunting for Dummies](https://rynooy.itch.io/ghost-hunting-for-dumies)
 
-*No thumbnail*  
 [Feeble Hero](https://doomguy077.itch.io/feeble-hero)
 
 [Temporal Tactics](https://trr4m.itch.io/temporal-tactics)

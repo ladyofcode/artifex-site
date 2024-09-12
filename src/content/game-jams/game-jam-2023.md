@@ -27,5 +27,4 @@ Many thanks to our  our sponsors, X and Y.
 
 [Shift](https://davidbyzero.itch.io/shift)
 
-*No thumbnail*
 [CubeShift](https://itch.io/jam/cssa-artifex-game-jam/rate/2173116)

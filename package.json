@@ -35,7 +35,10 @@
 	"dependencies": {
 		"@fontsource-variable/jura": "^5.0.20",
 		"@fontsource/roboto": "^5.0.13",
+		"@tsparticles/slim": "^3.5.0",
+		"@tsparticles/svelte": "^3.1.1",
 		"gsap": "file:gsap-bonus.tgz",
-		"photoswipe": "^5.4.4"
+		"photoswipe": "^5.4.4",
+		"tsparticles": "^3.5.0"
 	}
 }

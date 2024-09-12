@@ -181,7 +181,6 @@
 		display: flex;
 		justify-content: center;
 		padding-inline: var(--space-xxl);
-    background-color: white;
 	}
 
 	.template-wrapper > div {

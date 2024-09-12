@@ -40,4 +40,7 @@
 		{ name: 'Parry', imageSrc: '/images/piece_by_piece/pbp4.png', url: "https://artifexanu.com/" },
 	];
 </script>
-<UpcomingTemplate jamTitle="Game Jam 2025" description={mockDescription} events={mockEvents} guide={mockGuide} submission={mockSubmission} sponsors={mockSponsorData}></UpcomingTemplate>
+
+<main class="page-container">
+	<UpcomingTemplate jamTitle="Game Jam 2025" description={mockDescription} events={mockEvents} guide={mockGuide} submission={mockSubmission} sponsors={mockSponsorData}></UpcomingTemplate>
+</main>

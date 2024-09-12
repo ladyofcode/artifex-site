@@ -16,7 +16,7 @@
 		},
 		{
 			text: 'Upcoming',
-			href: '/game-jam/game-jam-2025'
+			href: '/game-jam/upcoming'
 		},
 		{
 			text: 'Past Jams',
@@ -25,11 +25,11 @@
 		},
 		{
 			text: 'Rules',
-			href: '/rules',
+			href: '/game-jam/rules',
 			subItems: [
 				{
 					text: 'Faq',
-					href: '/faq'
+					href: '/game-jam/faq'
 				},
 
 			]

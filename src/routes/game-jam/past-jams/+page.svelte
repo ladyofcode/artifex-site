@@ -12,7 +12,7 @@
 
 		<div class="page-content">
 			{#each data.posts as post}
-				<a href={'/past-jams/' + post.slug}>
+				<a href={'/game-jam/past-jams/' + post.slug}>
 					<div id="list-item">
 						<h2>{post.title}</h2>
 						<p>

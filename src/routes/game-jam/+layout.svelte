@@ -5,6 +5,8 @@
 
     export let data;
 
+		console.log(data);
+
     const filteredData = data.posts.filter(item => item.title.toLocaleLowerCase().includes("game jam"));
     const pastJame = filteredData
                         .map(item => ({text: item.title, href: "/game-jam/past-jams/" + item.slug}))
@@ -16,7 +18,7 @@
 		},
 		{
 			text: 'Upcoming',
-			href: '/game-jam/game-jam-2025'
+			href: '/game-jam/upcoming'
 		},
 		{
 			text: 'Past Jams',

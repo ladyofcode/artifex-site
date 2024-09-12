@@ -1,5 +1,5 @@
 <script>
-    import FAQ from '../../../content/single-pages/faq.md';
+    import FAQ from '../../content/single-pages/faq.md';
   </script>
 
 <!-- import { metadata as rulesMetadata } from '$content/single-pages/rules.md'; -->

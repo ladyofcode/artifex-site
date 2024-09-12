@@ -45,7 +45,6 @@
 		width: 100%;
 		height: 100vh;
 		position: sticky;
-		background-color: black;
 		overflow: hidden;
 		max-height: 0;
 		transition: max-height 0.5s ease-out;

@@ -1,5 +1,5 @@
 ---
-title: Game Jame 2023
+title: Game Jam 2023
 description: First game jam hosted by Artifex and the CSSA.
 date: 2023-02-11T19:40:41.563Z
 slug: game-jam-2023

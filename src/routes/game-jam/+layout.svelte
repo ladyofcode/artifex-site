@@ -27,11 +27,11 @@
 		},
 		{
 			text: 'Rules',
-			href: '/rules',
+			href: '/game-jam/rules',
 			subItems: [
 				{
 					text: 'Faq',
-					href: '/faq'
+					href: '/game-jam/faq'
 				},
 
 			]

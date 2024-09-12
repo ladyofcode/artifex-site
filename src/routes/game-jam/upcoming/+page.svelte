@@ -2,7 +2,6 @@
 	import Description from '$lib/components/game-jam-template/Description.svelte';
 	import Event from '$lib/components/game-jam-template/Event.svelte';
 	import Sponsors from '$lib/components/game-jam-template/Sponsors.svelte';
-	import { description } from "$lib/config";
 
 	const mockJamTitle = "Game Jam 2025"
 	const mockJamDesc =

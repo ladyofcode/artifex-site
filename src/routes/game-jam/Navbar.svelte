@@ -10,18 +10,38 @@
 	}
 
 	let currentLocation;
-	$: isCurrentPage = (href) => {
+	$: isCurrentPage = (href, subItems) => {
 		if (!currentLocation) return '';
 		if (!href) return '';
 
-		const splitDirectoryCurrent = currentLocation.split('/');
-		const lastDirectoryCurrent = splitDirectoryCurrent[splitDirectoryCurrent.length - 1];
+		let result = ""
 
-		const splitDirectoryHRef = href.split('/');
-		const lastDirectoryHRef = splitDirectoryHRef[splitDirectoryHRef.length - 1];
+		if(compareHref(currentLocation, href)){
+			result = 'selected'; 
+		}
+		else if(subItems && subItems.length > 0){
+			for (let index = 0; index < subitems.length; index++) {
+				const subItem = subItems[index];
+				if(compareHref(currentLocation, subItem.href)){
+					result = "selected";
+					break;
+				}
+			}
+		}
 
-		return lastDirectoryCurrent.includes(lastDirectoryHRef) ? 'selected' : '';
+		return result;
+		
 	};
+
+	function compareHref(subject, target){
+		const splitDirectorysubject = subject.split('/');
+		const lastDirectorysubject = splitDirectorysubject[splitDirectorysubject.length - 1];
+
+		const splitDirectorytarget = target.split('/');
+		const lastDirectorytarget = splitDirectorytarget[splitDirectorytarget.length - 1];
+
+		return lastDirectorysubject.includes(lastDirectorytarget);
+	}
 
 	let observer;
 
@@ -66,7 +86,6 @@
             timeline.to(toShow, {
                 opacity: 0,
                 height: "0px",
-                overflow: "hidden"
             })
         }
     }
@@ -82,7 +101,7 @@
 	<nav>
 		<ul class="main-menu">
 			{#each navItems as item}
-				<li class="item {isCurrentPage(item.href)}" id={toSlug(item.text)}>
+				<li class="item {isCurrentPage(item.href, item.subItem)}" id={toSlug(item.text)}>
 					<a href={item.href}>
 						{item.text}
 					</a>
@@ -248,7 +267,6 @@
 	.item .subcontent {
 		opacity: 0;
         height: 0;
-        overflow: hidden;
 		padding-left: 0.75rem;
 	}
 
@@ -297,7 +315,6 @@
         .item .subcontent{
             opacity: 0;
             height: 0;
-            overflow: hidden;
             pointer-events: none;
             transition: 0.2s linear;
         }
@@ -305,7 +322,6 @@
 		.item:hover .subcontent{
 			opacity: 1;
             height: auto;
-            overflow: auto;
             pointer-events: all;
 			padding: var(--space-sm) var(--space-xl);
             transition: 0.2s linear;
@@ -338,7 +354,7 @@
 			margin-top: 0;
 		}
 
-		.item.selected a::before {
+		.item.selected > a::before {
 			content: '•';
 			font-size: 32px;
 			position: absolute;

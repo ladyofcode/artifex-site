@@ -2,7 +2,6 @@
 title: Game Jam rules
 slug: rules
 ---
-# Rules
 
 ## Registration and teams
 

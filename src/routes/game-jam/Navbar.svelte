@@ -10,18 +10,38 @@
 	}
 
 	let currentLocation;
-	$: isCurrentPage = (href) => {
+	$: isCurrentPage = (href, subItems) => {
 		if (!currentLocation) return '';
 		if (!href) return '';
 
-		const splitDirectoryCurrent = currentLocation.split('/');
-		const lastDirectoryCurrent = splitDirectoryCurrent[splitDirectoryCurrent.length - 1];
+		let result = ""
 
-		const splitDirectoryHRef = href.split('/');
-		const lastDirectoryHRef = splitDirectoryHRef[splitDirectoryHRef.length - 1];
+		if(compareHref(currentLocation, href)){
+			result = 'selected'; 
+		}
+		else if(subItems && subItems.length > 0){
+			for (let index = 0; index < subitems.length; index++) {
+				const subItem = subItems[index];
+				if(compareHref(currentLocation, subItem.href)){
+					result = "selected";
+					break;
+				}
+			}
+		}
 
-		return lastDirectoryCurrent.includes(lastDirectoryHRef) ? 'selected' : '';
+		return result;
+		
 	};
+
+	function compareHref(subject, target){
+		const splitDirectorysubject = subject.split('/');
+		const lastDirectorysubject = splitDirectorysubject[splitDirectorysubject.length - 1];
+
+		const splitDirectorytarget = target.split('/');
+		const lastDirectorytarget = splitDirectorytarget[splitDirectorytarget.length - 1];
+
+		return lastDirectorysubject.includes(lastDirectorytarget);
+	}
 
 	let observer;
 
@@ -81,7 +101,7 @@
 	<nav>
 		<ul class="main-menu">
 			{#each navItems as item}
-				<li class="item {isCurrentPage(item.href)}" id={toSlug(item.text)}>
+				<li class="item {isCurrentPage(item.href, item.subItem)}" id={toSlug(item.text)}>
 					<a href={item.href}>
 						{item.text}
 					</a>

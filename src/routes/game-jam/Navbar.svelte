@@ -338,7 +338,7 @@
 			margin-top: 0;
 		}
 
-		.item.selected a::before {
+		.item.selected > a::before {
 			content: '•';
 			font-size: 32px;
 			position: absolute;

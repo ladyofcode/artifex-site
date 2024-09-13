@@ -66,7 +66,6 @@
             timeline.to(toShow, {
                 opacity: 0,
                 height: "0px",
-                overflow: "hidden"
             })
         }
     }
@@ -248,7 +247,6 @@
 	.item .subcontent {
 		opacity: 0;
         height: 0;
-        overflow: hidden;
 		padding-left: 0.75rem;
 	}
 
@@ -297,7 +295,6 @@
         .item .subcontent{
             opacity: 0;
             height: 0;
-            overflow: hidden;
             pointer-events: none;
             transition: 0.2s linear;
         }
@@ -305,7 +302,6 @@
 		.item:hover .subcontent{
 			opacity: 1;
             height: auto;
-            overflow: auto;
             pointer-events: all;
 			padding: var(--space-sm) var(--space-xl);
             transition: 0.2s linear;

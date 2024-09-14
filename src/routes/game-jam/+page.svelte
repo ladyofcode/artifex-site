@@ -4,6 +4,8 @@
 	import { onMount } from 'svelte';
 	import { loadFull } from 'tsparticles'; // if you are going to use `loadFull`, install the "tsparticles" package too.
 	import { loadSlim } from '@tsparticles/slim'; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+	import Introduction from '$lib/components/game-jam-template/Introduction.svelte';
+	import InfoBox from '$lib/components/game-jam-template/InfoBox.svelte';
 
 	let ParticlesComponent;
 
@@ -139,6 +141,57 @@
 		//await loadFull(main);
 		await loadFull(engine);
 	});
+
+	const infoList = [
+		{
+			title: 'Lorum title ipsum 1',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#DEBE4B'
+		},
+		{
+			title: 'Lorum title ipsum 2',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#C13434'
+		},
+		{
+			title: 'Lorum title ipsum 3',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#D96D0A'
+		},
+		{
+			title: 'Lorum title ipsum 4',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#1AA541'
+		},
+		{
+			title: 'Lorum title ipsum 5',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#9C9C9C'
+		},
+		{
+			title: 'Lorum title ipsum 6',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#9C9C9C'
+		},
+		{
+			title: 'Lorum title ipsum 7',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#9C9C9C'
+		},
+		{
+			title: 'Lorum title ipsum 8',
+			description:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim sit amet ligula at consectetur.',
+			borderColor: '#9C9C9C'
+		}
+	];
 </script>
 
 <svelte:component
@@ -150,23 +203,47 @@
 	on:particlesLoaded={onParticlesLoaded}
 />
 
-<main>
-	<h1>Annual game jams</h1>
-	<p>Co-hosted by Artifex and the ANU CSSA</p>
-
+<main class="page-container">
+	<!-- <h1>Annual game jams</h1>
+	<p>Co-hosted by Artifex and the ANU CSSA</p> -->
 	<div>
-		<div>
-			<a href="">View next jams</a>
-			<a href="/past-jams">View past jams</a>
-		</div>
+		<!-- <div>
+			<a href="/game-jam/upcoming">View next jams</a>
+			<a href="/game-jam/past-jams">View past jams</a>
+		</div> -->
 
-		<img src={banner_image} alt="" />
+		<!-- <img src={banner_image} alt="" /> -->
+		<Introduction />
+		<center>
+			<div class="grid">
+				{#each infoList as info}
+					<InfoBox
+						title={info.title}
+						description={info.description}
+						borderColor={info.borderColor}
+					/>
+				{/each}
+			</div>
+		</center>
 	</div>
 </main>
 
 <style>
 	main {
-        width: --width-content;
-        margin: 0 auto;
-    }
+		width: --width-content;
+		margin: 80px auto 0 auto;
+		padding-bottom: 65px;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 65px 32px;
+	}
+
+	@media (max-width: 999px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
 </style>

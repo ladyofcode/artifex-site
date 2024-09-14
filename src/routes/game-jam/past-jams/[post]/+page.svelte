@@ -6,8 +6,11 @@
 	import Sponsors from '$lib/components/game-jam-template/Sponsors.svelte';
 	import GameCard from '$lib/components/game-jam-template/GameCard.svelte';
 	import GameCollection from '$lib/components/game-jam-template/GameCollection.svelte';
+	import { extractTeamString } from '$lib/utils.ts';
 
 	export let data;
+
+	data.meta.teams.map(extractTeamString);
 
 	const mockTheme = 'Time Loop';
 
@@ -215,7 +218,7 @@
 	<div class="template-wrapper">
 		<div>
 			<div class="jam-title">
-				<h1>{data.slug}</h1>
+				<h1>{data.meta.title}</h1>
 				<h2 style="margin-bottom: 30px;">Theme: {mockTheme}</h2>
 			</div>
 

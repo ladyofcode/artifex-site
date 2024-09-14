@@ -102,7 +102,7 @@
 		<ul class="main-menu">
 			{#each navItems as item}
 				<li class="item {isCurrentPage(item.href, item.subItem)}" id={toSlug(item.text)}>
-					<a href={item.href}>
+					<a href={item.href} class="{isCurrentPage(item.href, item.subItem)}">
 						{item.text}
 					</a>
 					{#if item.subItems && item.subItems.length > 0}
@@ -115,7 +115,7 @@
 								xmlns="http://www.w3.org/2000/svg"
                                 class="no-pointer"
 							>
-								<path d="M1 1L6 6L11 1" class="no-pointer" stroke="white" />
+								<path d="M1 1L6 6L11 1" class="no-pointer {isCurrentPage(item.href, item.subItem)}" stroke="#90908f" />
 							</svg>
                         </span>
 
@@ -136,9 +136,16 @@
 </div>
 
 <style>
+	h1 {
+		font-size: 36px;
+		color: white;
+		margin: 0;
+	}
+	
 	a {
 		text-decoration: none;
-		color: var(--clr-text);
+		/* color: var(--clr-text); */
+		color: #90908f;
 	}
 
 	.navigation-container {
@@ -146,6 +153,7 @@
 		padding-top: var(--space-md);
 		padding-left: var(--space-md);
 		padding-right: var(--space-md);
+		align-items: center;
 	}
 
 	/* input for burger */
@@ -254,6 +262,10 @@
 		list-style-type: disc;
 	}
 
+	a.selected {
+		color: white
+	}
+
 	li svg {
 		display: inline;
 		margin-bottom: 2px;
@@ -278,9 +290,15 @@
     .menu-caret{
         cursor: pointer;
     }
+
     .no-pointer{
         pointer-events: none;
     }
+
+    .no-pointer .selected{
+        stroke: white;
+    }
+	
 	@media (min-width: 1000px) {
 		.navigation-container {
 			align-items: center;
@@ -310,6 +328,7 @@
 			position: relative;
 			cursor: pointer;
 			font-size: 16px;
+			color: #90908f;
 		}
 
         .item .subcontent{

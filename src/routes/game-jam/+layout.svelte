@@ -6,7 +6,7 @@
     export let data;
 
     const filteredData = data.posts.filter(item => item.title.toLocaleLowerCase().includes("game jam"));
-    const pastJame = filteredData
+    const pastJams = filteredData
                         .map(item => ({text: item.title, href: "/game-jam/past-jams/" + item.slug}))
 
     const navItems = [
@@ -21,7 +21,7 @@
 		{
 			text: 'Past Jams',
 			href: '/game-jam/past-jams',
-			subItems: pastJame
+			subItems: pastJams
 		},
 		{
 			text: 'Rules',

@@ -150,14 +150,14 @@
 	on:particlesLoaded={onParticlesLoaded}
 />
 
-<main>
+<main class="page-container">
 	<h1>Annual game jams</h1>
 	<p>Co-hosted by Artifex and the ANU CSSA</p>
 
 	<div>
 		<div>
-			<a href="">View next jams</a>
-			<a href="/past-jams">View past jams</a>
+			<a href="/game-jam/upcoming">View next jams</a>
+			<a href="/game-jam/past-jams">View past jams</a>
 		</div>
 
 		<img src={banner_image} alt="" />

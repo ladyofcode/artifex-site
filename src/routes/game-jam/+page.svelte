@@ -41,8 +41,10 @@
 				}
 			},
 			opacity: {
-				value: 0.5918,
-				random: true,
+				value: {
+					min: 0,
+					max: 1
+				},
 				anim: {
 					enable: true,
 					speed: 1,

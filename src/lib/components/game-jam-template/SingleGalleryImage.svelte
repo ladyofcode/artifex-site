@@ -3,7 +3,7 @@
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
 
-	export let image;
+	export let image; // : {src: string}
 
 	let gallery, item, img;
 

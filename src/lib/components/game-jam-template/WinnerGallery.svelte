@@ -1,6 +1,6 @@
 <script>
 	import SingleGalleryImage from './SingleGalleryImage.svelte';
-	export let awards = []; // : {award: string, winner: string, image: {src: string, width: number, height: number}, url: string}[]
+	export let awards = []; // : {award: string, winner: string, image: {src: string}, url: string}[]
 </script>
 
 <div>

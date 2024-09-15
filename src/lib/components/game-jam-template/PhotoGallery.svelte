@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
-	export let images; // {src: string, width: number, height: number}[]
+	export let images; // {src: string}[]
 
 	let gallery;
 

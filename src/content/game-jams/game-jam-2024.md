@@ -1,4 +1,5 @@
 ---
+published: true
 title: Game Jam 2024
 theme: Time Loop
 description: Second annual Game Jam hosted by Artifex and the CSSA.
@@ -10,7 +11,6 @@ events:
   - 2024-08-02T10:00:00 | Game Jam Start and Theme Announcement | Co-Lab Hanna Neumann Lvl 5 and Online (hybrid)
   - 2024-08-04T17:00:00 | Game Jam Submission Deadline | Co-Lab Hanna Neumann Lvl 5 and Online (hybrid)
   - 2024-08-04T17:00:00 | Demos & Dinner Night | Co-Lab Hanna Neumann Lvl 5
-published: true
 teams:
   - Once More, With Spirit | Missing data | https://gingeh.itch.io/once-more-with-spirit | 1
   - 12 Hours | Missing data | https://itch.io/jam/cssa-artifex-anu-game-jam-2024/rate/2876792 | 1

@@ -1,14 +1,13 @@
 <script>
-	export let description;
 	export let imageSrc;
 </script>
 
 <div class="description-wrapper">
     <div class="description">
-      <p>{description}</p>
+      <slot />
     </div>
     <!-- <div class="image-mocker"></div> -->
-     <div class="image-container"><img src={imageSrc} alt="mock"/></div>
+     <div class="image-container"><img src={imageSrc} alt="main visual"/></div>
 </div>
 
 <style>

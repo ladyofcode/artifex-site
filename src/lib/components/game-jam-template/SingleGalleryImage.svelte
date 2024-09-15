@@ -5,7 +5,7 @@
 
 	export let image;
 
-	let gallery, item;
+	let gallery, item, img;
 
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({
@@ -14,6 +14,8 @@
 			pswpModule: () => import('photoswipe')
 		});
 		lightbox.init();
+		item.setAttribute("data-pswp-width", img.naturalWidth);
+		item.setAttribute("data-pswp-height", img.naturalHeight);
 	});
 </script>
 
@@ -21,12 +23,12 @@
 	<a
     class="image-wrapper"
 		href={image.src}
-		data-pswp-width={image.width || 1024}
-		data-pswp-height={image.height || 768}
+		data-pswp-width={1024}
+		data-pswp-height={768}
 		rel="noreferrer"
 		bind:this={item}
 	>
-		<img src={image.src} alt="" />
+		<img src={image.src} alt="" bind:this={img}/>
 	</a>
 </div>
 

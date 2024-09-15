@@ -49,7 +49,9 @@
 			<div class="jam-title">
 				<h1>{mockJamTitle}</h1>
 			</div>
-			<Description description={mockDescription.description} imageSrc={mockDescription.imageSrc}></Description>
+			<Description imageSrc={mockDescription.imageSrc}>
+				<p>{mockDescription.description}</p>
+			</Description>
 	
 			<a class="link-button" href="rule-link" tabindex="0">Read the rules</a>
 	

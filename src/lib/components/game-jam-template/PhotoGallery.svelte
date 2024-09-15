@@ -6,6 +6,11 @@
 
 	let gallery;
 
+	let imageDOMs = [];
+	for(let i = 0; i < images.length; i++){
+		imageDOMs.push({});
+	}
+
 	onMount(() => {
 		let lightbox = new PhotoSwipeLightbox({
 			gallery: gallery,
@@ -13,21 +18,26 @@
 			pswpModule: () => import('photoswipe')
 		});
 		lightbox.init();
+		for(let {a, img} of imageDOMs){
+			a.setAttribute("data-pswp-width", img.naturalWidth);
+			a.setAttribute("data-pswp-height", img.naturalHeight);
+		}
 	});
 </script>
 
 <div>
   <h2 class="title">Gallery</h2>
     <div class="game-gallery-wrapper" bind:this={gallery}>
-      {#each images as image}
+      {#each images as image, index}
         <a
           class="image-wrapper"
           href={image.src}
-          data-pswp-width={image.width || 1024}
-          data-pswp-height={image.height || 768}
+          data-pswp-width={1024}
+          data-pswp-height={768}
           rel="noreferrer"
+					bind:this={imageDOMs[index].a}
         >
-          <img src={image.src} alt="" />
+          <img src={image.src} alt="" bind:this={imageDOMs[index].img}/>
         </a>
       {/each}
     </div>

@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import PhotoSwipeLightbox from 'photoswipe/lightbox';
 	import 'photoswipe/style.css';
+	import ImageInGallery from './ImageInGallery.svelte';
 
 	export let images; // : {src: string, width: number, height: number}[]
 	export let gameName; // : string
@@ -15,6 +16,11 @@
 
 	const imageCount = images.length;
 	let currentIndex = 0;
+
+	let imageDOMs = [];
+	for(let i = 0; i < imageCount; i++){
+		imageDOMs.push({});
+	}
 
 	function slideImage(newIndex) {
 		gsap.to(gallery, {x: newIndex * -contentWidth});
@@ -39,6 +45,11 @@
 		});
 		lightbox.on('contentActivate', ({ content }) => slideImage(content.index));
 		lightbox.init();
+		for(let {a, img} of imageDOMs){
+			console.log(gameName, img.naturalWidth, img.naturalHeight);
+			a.setAttribute("data-pswp-width", img.naturalWidth);
+			a.setAttribute("data-pswp-height", img.naturalHeight);
+		}
 	});
 </script>
 
@@ -57,15 +68,16 @@
       </button>
     </div>
 		<div class="gallery" bind:this={gallery}>
-			{#each images as image}
+			{#each images as image, index}
 				<a
 					class="image-wrapper"
 					href={image.src}
 					data-pswp-width={image.width}
 					data-pswp-height={image.height}
 					rel="noreferrer"
+					bind:this={imageDOMs[index].a}
 				>
-					<img src={image.src} alt="" />
+					<img src={image.src} alt="" bind:this={imageDOMs[index].img}/>
 				</a>
 			{/each}
 		</div>

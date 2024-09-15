@@ -1,6 +1,5 @@
 import { error } from '@sveltejs/kit';
 
-
 export async function load({ params }) {
 	try {
 		const jam = await import(/* @vite-ignore */ `/src/content/game-jams/${params.post}.md`);
